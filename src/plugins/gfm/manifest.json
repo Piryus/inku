@@ -1,0 +1,1 @@
+{"id": "gfm", "name": "GitHub Flavored Markdown", "version": "1.0.0", "description": "Tables, strikethrough, autolinks, and task lists", "type": "markdown-extension", "hooks": {"remarkPlugin": true, "codemirrorExtension": false}}

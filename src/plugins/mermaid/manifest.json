@@ -1,0 +1,1 @@
+{"id": "mermaid", "name": "Mermaid Diagrams", "version": "1.0.0", "description": "Render Mermaid diagrams from fenced code blocks", "type": "markdown-extension", "hooks": {"remarkPlugin": false, "codemirrorExtension": false}}

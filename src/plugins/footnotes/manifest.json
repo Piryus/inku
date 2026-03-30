@@ -1,0 +1,1 @@
+{"id": "footnotes", "name": "Footnotes", "version": "1.0.0", "description": "Support for footnote references and definitions", "type": "markdown-extension", "hooks": {"remarkPlugin": true, "codemirrorExtension": false}}

@@ -1,0 +1,1 @@
+{"id": "math", "name": "Math (KaTeX)", "version": "1.0.0", "description": "Render LaTeX math expressions with KaTeX", "type": "markdown-extension", "hooks": {"remarkPlugin": true, "codemirrorExtension": false}}
