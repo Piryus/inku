@@ -1,4 +1,4 @@
-import chokidar from 'chokidar'
+import chokidar, { FSWatcher } from 'chokidar'
 import Database from 'better-sqlite3'
 import fs from 'fs'
 import path from 'path'
@@ -81,7 +81,7 @@ export function watchRoot(
   rootId: string,
   rootPath: string,
   callbacks: WatcherCallbacks
-): chokidar.FSWatcher {
+): FSWatcher {
   const watcher = chokidar.watch(rootPath, {
     ignored: /(^|[\/\\])\.|node_modules/,
     persistent: true,
