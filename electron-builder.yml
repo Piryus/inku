@@ -2,12 +2,19 @@ appId: com.inku.app
 productName: Inku
 directories:
   output: release
+  buildResources: resources
 mac:
   category: public.app-category.developer-tools
+  icon: resources/icon.icns
   target:
     - dmg
     - zip
+  darkModeSupport: true
 files:
   - dist/**/*
   - node_modules/**/*
+  - themes/**/*
   - package.json
+extraResources:
+  - from: themes
+    to: themes
