@@ -4,6 +4,7 @@ import { TabBar } from './components/tabs/TabBar'
 import { Editor } from './components/editor/Editor'
 import { StatusBar } from './components/statusbar/StatusBar'
 import { CommandPalette } from './components/command-palette/CommandPalette'
+import { Settings } from './components/settings/Settings'
 import { useThemeStore } from './stores/theme'
 
 type PaletteMode = 'files' | 'commands' | null
@@ -63,6 +64,10 @@ export function App() {
           mode={paletteMode}
           onClose={() => setPaletteMode(null)}
         />
+      )}
+
+      {settingsOpen && (
+        <Settings onClose={() => setSettingsOpen(false)} />
       )}
     </div>
   )
