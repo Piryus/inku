@@ -13,6 +13,38 @@ class EmptyWidget extends WidgetType {
     return span
   }
 }
+
+class CheckboxWidget extends WidgetType {
+  checked: boolean
+  pos: number
+
+  constructor(checked: boolean, pos: number) {
+    super()
+    this.checked = checked
+    this.pos = pos
+  }
+
+  eq(other: CheckboxWidget) {
+    return this.checked === other.checked && this.pos === other.pos
+  }
+
+  toDOM(view: EditorView) {
+    const cb = document.createElement('input')
+    cb.type = 'checkbox'
+    cb.checked = this.checked
+    cb.className = 'cm-md-checkbox-input'
+    cb.addEventListener('mousedown', (e) => {
+      e.preventDefault()
+      const newText = this.checked ? '- [ ] ' : '- [x] '
+      view.dispatch({
+        changes: { from: this.pos, to: this.pos + 6, insert: newText },
+      })
+    })
+    return cb
+  }
+
+  ignoreEvent() { return false }
+}
 import { RangeSetBuilder } from '@codemirror/state'
 import { syntaxTree } from '@codemirror/language'
 
@@ -92,6 +124,28 @@ function buildDecorations(view: EditorView): DecorationSet {
           builder.add(from + 1, labelEnd - 1, Decoration.mark({ class: 'cm-md-link' }))
           // Hide closing bracket and (url) part
           builder.add(labelEnd - 1, to, Decoration.replace({}))
+        }
+        return
+      }
+
+      if (name === 'TaskMarker') {
+        // GFM task list: - [ ] or - [x]
+        // The TaskMarker node covers just [x] or [ ]
+        // We want to replace "- [ ] " or "- [x] " with a checkbox widget
+        const line = state.doc.lineAt(from)
+        const lineText = line.text
+        const taskMatch = lineText.match(/^(\s*)-\s\[([ xX])\]\s/)
+        if (taskMatch) {
+          const checked = taskMatch[2] !== ' '
+          const replaceFrom = line.from
+          const replaceTo = line.from + taskMatch[0].length
+          builder.add(replaceFrom, replaceTo, Decoration.replace({
+            widget: new CheckboxWidget(checked, replaceFrom),
+          }))
+          // If checked, strike through the rest of the line
+          if (checked && replaceTo < line.to) {
+            builder.add(replaceTo, line.to, Decoration.mark({ class: 'cm-md-checkbox-checked' }))
+          }
         }
         return
       }

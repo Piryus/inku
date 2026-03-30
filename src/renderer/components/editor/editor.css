@@ -112,9 +112,45 @@
   color: var(--color-text-secondary);
 }
 
-.cm-md-checkbox {
-  font-family: var(--font-mono);
+.cm-md-checkbox-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-text-muted);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+  transition: all 0.15s ease;
+}
+
+.cm-md-checkbox-input:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.cm-md-checkbox-input:checked::after {
+  content: '✓';
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  line-height: 12px;
+  color: var(--color-bg-primary);
+  font-weight: 700;
+}
+
+.cm-md-checkbox-input:hover {
+  border-color: var(--color-accent);
+}
+
+.cm-md-checkbox-checked {
+  text-decoration: line-through;
   color: var(--color-text-muted);
+  opacity: 0.6;
 }
 
 /* Fenced code blocks */
