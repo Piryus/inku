@@ -1,0 +1,21 @@
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-primary);
+  height: 28px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.status-bar-left {
+  display: flex;
+  gap: 16px;
+}
+
+.status-bar-right {
+  display: flex;
+  gap: 16px;
+}
