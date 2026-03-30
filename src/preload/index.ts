@@ -19,6 +19,9 @@ const electronAPI = {
     ipcRenderer.on(channel, handler)
     return () => ipcRenderer.removeListener(channel, handler)
   },
+  showOpenDialog: (): Promise<string | null> => {
+    return ipcRenderer.invoke('dialog:open-folder')
+  },
 }
 
 contextBridge.exposeInMainWorld('electronAPI', electronAPI)

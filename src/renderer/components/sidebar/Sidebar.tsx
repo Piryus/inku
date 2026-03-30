@@ -14,17 +14,17 @@ export function Sidebar() {
   useEffect(() => {
     loadRoots()
     loadTags()
+
+    const unsubChange = window.electronAPI.on('watch:file-changed', () => { loadTags() })
+    const unsubCreate = window.electronAPI.on('watch:file-created', () => { loadRoots(); loadTags() })
+    const unsubDelete = window.electronAPI.on('watch:file-deleted', () => { loadRoots(); loadTags() })
+
+    return () => { unsubChange(); unsubCreate(); unsubDelete() }
   }, [])
 
-  const handleAddFolder = async () => {
-    // showOpenDialog is wired in Task 12 — use optional chaining until then
-    const api = window.electronAPI as typeof window.electronAPI & {
-      showOpenDialog?: () => Promise<{ canceled: boolean; filePaths: string[] }>
-    }
-    const result = await api.showOpenDialog?.()
-    if (result && !result.canceled && result.filePaths.length > 0) {
-      await addRoot(result.filePaths[0])
-    }
+  const handleOpenFolder = async () => {
+    const folderPath = await window.electronAPI.showOpenDialog()
+    if (folderPath) await addRoot(folderPath)
   }
 
   return (
@@ -33,7 +33,7 @@ export function Sidebar() {
         <span className="sidebar-brand">Inku</span>
         <button
           className="sidebar-add-btn"
-          onClick={handleAddFolder}
+          onClick={handleOpenFolder}
           title="Open folder"
         >
           +
