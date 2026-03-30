@@ -1,0 +1,17 @@
+import type { ThemeColors } from '@shared/theme-types'
+
+export const defaultDarkColors: ThemeColors = {
+  'bg-primary': '#0a0a0b',
+  'bg-secondary': '#111113',
+  'bg-surface': '#1a1a1e',
+  'border': '#1e1e22',
+  'text-primary': '#e0e0e2',
+  'text-secondary': '#8a8a90',
+  'text-muted': '#4a4a4f',
+  'accent': '#c4b5fd',
+  'accent-strong': '#7c3aed',
+  'accent-muted': '#1a1a2e',
+  'success': '#86efac',
+  'warning': '#fcd34d',
+  'error': '#fca5a5',
+}

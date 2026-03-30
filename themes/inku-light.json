@@ -1,0 +1,19 @@
+{
+  "name": "Inku Light",
+  "author": "inku",
+  "colors": {
+    "bg-primary": "#fafafa",
+    "bg-secondary": "#f0f0f2",
+    "bg-surface": "#ffffff",
+    "border": "#e2e2e5",
+    "text-primary": "#1a1a1e",
+    "text-secondary": "#666666",
+    "text-muted": "#b0b0b4",
+    "accent": "#7c3aed",
+    "accent-strong": "#6d28d9",
+    "accent-muted": "#ede9fe",
+    "success": "#16a34a",
+    "warning": "#d97706",
+    "error": "#dc2626"
+  }
+}
