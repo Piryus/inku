@@ -3,7 +3,16 @@ import {
   DecorationSet,
   EditorView,
   Decoration,
+  WidgetType,
 } from '@codemirror/view'
+
+class EmptyWidget extends WidgetType {
+  toDOM() {
+    const span = document.createElement('span')
+    span.style.display = 'none'
+    return span
+  }
+}
 import { RangeSetBuilder } from '@codemirror/state'
 import { syntaxTree } from '@codemirror/language'
 
@@ -91,6 +100,42 @@ function buildDecorations(view: EditorView): DecorationSet {
         const lineFrom = state.doc.lineAt(from).from
         builder.add(lineFrom, lineFrom, Decoration.line({ class: 'cm-md-blockquote' }))
         return
+      }
+
+      if (name === 'FencedCode') {
+        // Apply background to every line in the code block
+        const startLine = state.doc.lineAt(from)
+        const endLine = state.doc.lineAt(to)
+
+        for (let lineNum = startLine.number; lineNum <= endLine.number; lineNum++) {
+          const line = state.doc.line(lineNum)
+          const lineText = line.text
+
+          if (lineNum === startLine.number) {
+            // Opening ``` line
+            builder.add(line.from, line.from, Decoration.line({ class: 'cm-md-codeblock cm-md-codeblock-start' }))
+            if (nodeLine !== cursorLine) {
+              // Hide the ``` fence but show language label if present
+              const langMatch = lineText.match(/^```(\w+)/)
+              if (langMatch) {
+                builder.add(line.from, line.from + 3, Decoration.replace({}))
+                builder.add(line.from + 3, line.to, Decoration.mark({ class: 'cm-md-codeblock-lang' }))
+              } else {
+                builder.add(line.from, line.to, Decoration.replace({ widget: new EmptyWidget() }))
+              }
+            }
+          } else if (lineNum === endLine.number) {
+            // Closing ``` line
+            builder.add(line.from, line.from, Decoration.line({ class: 'cm-md-codeblock cm-md-codeblock-end' }))
+            if (nodeLine !== cursorLine) {
+              builder.add(line.from, line.to, Decoration.replace({ widget: new EmptyWidget() }))
+            }
+          } else {
+            // Content lines
+            builder.add(line.from, line.from, Decoration.line({ class: 'cm-md-codeblock' }))
+          }
+        }
+        return false // don't recurse into children
       }
     },
   })

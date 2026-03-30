@@ -116,3 +116,54 @@
   font-family: var(--font-mono);
   color: var(--color-text-muted);
 }
+
+/* Fenced code blocks */
+.editor-wrapper .cm-line.cm-md-codeblock {
+  background: var(--color-bg-surface);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.editor-wrapper .cm-line.cm-md-codeblock-start {
+  background: var(--color-bg-surface);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.editor-wrapper .cm-line.cm-md-codeblock-end {
+  background: var(--color-bg-surface);
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.cm-md-codeblock-lang {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+/* Hide the ``` markers when not on cursor line */
+.cm-md-codeblock-fence {
+  font-size: 0;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Horizontal rule */
+.cm-md-hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 12px 0;
+}
