@@ -10,7 +10,7 @@
 
 ## Core Concept
 
-Single-pane inline-rendering markdown editor (Obsidian-style). No split view — markdown renders in place as you type. When the cursor is on a line, raw syntax is shown; when it moves away, the line renders visually.
+Single-pane inline-rendering markdown editor. No split view — markdown renders in place as you type. When the cursor is on a line, raw syntax is shown; when it moves away, the line renders visually.
 
 Platform: Electron (macOS first), later ported to web. The architecture is designed for this — the renderer process never touches Node APIs.
 
@@ -244,7 +244,7 @@ Themes are small JSON files that define color tokens. No CSS, no layout — just
 
 ### Visual identity
 
-- **Style:** Sharp & modern. Linear/Raycast energy. High contrast, tight spacing, crisp edges.
+- **Style:** Sharp & modern. High contrast, tight spacing, crisp edges.
 - **Accent color:** Violet (`#c4b5fd` dark / `#7c3aed` light) — distinctive, pairs with "ink" theme.
 - **Surfaces:** Differentiated by shade, not elevation. No shadows. Subtle 1px borders.
 - **Spacing:** 4px base grid. Tight but breathable.

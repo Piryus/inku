@@ -20,7 +20,7 @@
 
 **Inku** (インク, "ink") is a markdown editor that renders your writing inline as you type — no split panes, no preview toggle. When the cursor is on a line, you see raw markdown. Move away, and it renders beautifully in place.
 
-Think Obsidian's editor, but sharper. Linear/Raycast-inspired design. Violet accents on dark surfaces. Tight spacing. No clutter.
+Sharp design. Violet accents on dark surfaces. Tight spacing. No clutter.
 
 ## Features
 
@@ -41,7 +41,7 @@ Think Obsidian's editor, but sharper. Linear/Raycast-inspired design. Violet acc
 **Design**
 - Dark-first, sharp & modern (Inku Dark + Inku Light included)
 - Themeable via small JSON files — just color tokens, no CSS
-- Inter for UI, JetBrains Mono for code
+- Clean typography — geometric sans for UI, monospace for code
 - 4px grid, subtle borders, no shadows
 
 **Extensible**
