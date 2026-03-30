@@ -1,10 +1,15 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Ink drop body -->
-  <path d="M60 10 C60 10, 28 52, 28 72 C28 89.673 42.327 104 60 104 C77.673 104 92 89.673 92 72 C92 52, 60 10, 60 10Z" fill="#7c3aed"/>
-  <!-- Highlight -->
-  <ellipse cx="48" cy="64" rx="8" ry="12" fill="#c4b5fd" opacity="0.3" transform="rotate(-15 48 64)"/>
-  <!-- Letter I -->
-  <rect x="52" y="52" width="16" height="36" rx="3" fill="white"/>
-  <rect x="50" y="48" width="20" height="8" rx="3" fill="white"/>
-  <rect x="50" y="84" width="20" height="8" rx="3" fill="white"/>
+  <!-- Top serif lines -->
+  <rect x="15" y="14" width="90" height="5" rx="2.5" fill="#c4b5fd"/>
+  <rect x="15" y="26" width="90" height="5" rx="2.5" fill="#c4b5fd" opacity="0.5"/>
+  <!-- Stem lines -->
+  <rect x="38" y="40" width="44" height="5" rx="2.5" fill="#7c3aed"/>
+  <rect x="38" y="52" width="44" height="5" rx="2.5" fill="#7c3aed"/>
+  <rect x="38" y="64" width="20" height="5" rx="2.5" fill="#7c3aed"/>
+  <!-- Cursor -->
+  <rect x="62" y="62" width="3" height="11" rx="1.5" fill="#c4b5fd"/>
+  <rect x="38" y="76" width="44" height="5" rx="2.5" fill="#7c3aed"/>
+  <!-- Bottom serif lines -->
+  <rect x="15" y="90" width="90" height="5" rx="2.5" fill="#c4b5fd" opacity="0.5"/>
+  <rect x="15" y="102" width="90" height="5" rx="2.5" fill="#c4b5fd"/>
 </svg>
