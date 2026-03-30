@@ -1,0 +1,118 @@
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editor-breadcrumb {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  padding: 6px 32px;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.editor-wrapper {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-wrapper .cm-editor {
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.editor-wrapper .cm-scroller {
+  padding: 16px 32px;
+  overflow: auto;
+}
+
+.editor-wrapper .cm-content {
+  max-width: 720px;
+}
+
+.editor-wrapper .cm-gutters {
+  display: none;
+}
+
+.editor-wrapper .cm-cursor {
+  border-left-color: var(--color-accent);
+  border-left-width: 2px;
+}
+
+.editor-wrapper .cm-selectionBackground {
+  background-color: var(--color-accent-muted) !important;
+}
+
+.editor-wrapper .cm-focused .cm-selectionBackground {
+  background-color: var(--color-accent-muted) !important;
+}
+
+/* Inline markdown rendering classes */
+
+.cm-md-heading-1 {
+  font-size: 1.8em;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  letter-spacing: -0.5px;
+  color: var(--color-text-primary);
+}
+
+.cm-md-heading-2 {
+  font-size: 1.4em;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  color: var(--color-text-primary);
+}
+
+.cm-md-heading-3 {
+  font-size: 1.15em;
+  font-weight: 600;
+  font-family: var(--font-ui);
+  color: var(--color-text-primary);
+}
+
+.cm-md-bold {
+  font-weight: 700;
+}
+
+.cm-md-italic {
+  font-style: italic;
+}
+
+.cm-md-code {
+  background: var(--color-bg-surface);
+  color: var(--color-accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.cm-md-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.cm-md-syntax {
+  opacity: 0;
+  font-size: 0;
+}
+
+.cm-md-blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 12px;
+  color: var(--color-text-secondary);
+}
+
+.cm-md-checkbox {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
